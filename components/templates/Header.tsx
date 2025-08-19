@@ -21,6 +21,7 @@ export default function Header() {
         <div className="flex items-center gap-x-4">
           <Link href="/project/create">
             <IconButton
+              variant="destructive"
               title="Create Project"
               icon={<PenBox className="h-18 w-18" />}
             />

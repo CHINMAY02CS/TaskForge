@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/templates/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { shadesOfPurple } from "@clerk/themes";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,7 +40,10 @@ export default function RootLayout({
       }}
     >
       <html lang="en" suppressHydrationWarning>
-        <body className={inter.className} suppressHydrationWarning>
+        <body
+          className={cn(inter.className, "dotted-background")}
+          suppressHydrationWarning
+        >
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
