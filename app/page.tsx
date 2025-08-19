@@ -2,9 +2,23 @@ import Image from "next/image";
 import Logo2 from "@/public/logo2.png";
 import Link from "next/link";
 import IconButton from "@/components/elements/IconButton";
-import { BarChart, Calendar, ChevronRight, Layout } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart,
+  Calendar,
+  ChevronRight,
+  Layout,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import CompanyCarousel from "@/components/templates/CompanyCaraousel";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import faqs from "@/components/data/faqs.json";
 
 export default function Home() {
   return (
@@ -44,6 +58,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      {/* Features */}
       <section id="features" className="bg-gray-900 py-20 px-5">
         <div className="container mx-auto">
           <h3 className="text-3xl font-bold mb-12 text-center">Key Features</h3>
@@ -59,6 +74,54 @@ export default function Home() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+      {/* Caraousel */}
+      <section className="py-20">
+        <div className="container mx-auto">
+          <h3 className="text-3xl font-bold mb-12 text-center">
+            Trusted by Industry Leaders
+          </h3>
+          <CompanyCarousel />
+        </div>
+      </section>
+      {/* FAQ Section */}
+      <section className="bg-gray-900 py-20 px-5">
+        <div className="container mx-auto">
+          <h3 className="text-3xl font-bold mb-12 text-center">
+            Frequently Asked Questions
+          </h3>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent>{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+      {/* CTA Section */}
+      <section className="py-20 text-center px-5">
+        <div className="container mx-auto">
+          <h3 className="text-3xl font-bold mb-6">
+            Ready to Transform Your Workflow?
+          </h3>
+          <p className="text-xl mb-12">
+            Join thousands of teams already using ZCRUM to streamline their
+            projects and boost productivity.
+          </p>
+          <div className="flex items-center justify-center">
+            <Link href="/onboarding">
+              <IconButton
+                title="Start For Free"
+                size="lg"
+                className="animate-bounce"
+                icon={<ArrowRight className="ml-2 h-5 w-5" />}
+                reverse
+              />
+            </Link>
           </div>
         </div>
       </section>
