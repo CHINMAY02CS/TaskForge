@@ -12,27 +12,34 @@ import companies from "@/components/data/companies.json";
 
 export default function CompanyCarousel() {
   return (
-    <Carousel
-      plugins={[
-        Autoplay({
-          delay: 2000,
-        }),
-      ]}
-      className="w-full py-10"
-    >
-      <CarouselContent className="flex gap-5 sm:gap-20 items-center">
-        {companies.map(({ name, id, path }) => (
-          <CarouselItem key={id} className="basis-1/3 lg:basis-1/6 ">
-            <Image
-              src={path}
-              alt={name}
-              width={200}
-              height={56}
-              className="h-9 sm:h-14 w-auto object-contain"
-            />
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-    </Carousel>
+    <section className="py-20">
+      <div className="container mx-auto">
+        <h3 className="text-3xl font-bold mb-12 text-center">
+          Trusted by Industry Leaders
+        </h3>
+        <Carousel
+          plugins={[
+            Autoplay({
+              delay: 2000,
+            }),
+          ]}
+          className="w-full py-10"
+        >
+          <CarouselContent className="flex gap-5 sm:gap-20 items-center">
+            {companies.map(({ name, id, path }) => (
+              <CarouselItem key={id} className="basis-1/3 lg:basis-1/6 ">
+                <Image
+                  src={path}
+                  alt={name}
+                  width={200}
+                  height={56}
+                  className="h-9 sm:h-14 w-auto object-contain"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+    </section>
   );
 }
